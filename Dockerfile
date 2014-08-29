@@ -2,12 +2,8 @@
 FROM base/archlinux
 RUN pacman -Syu --noconfirm
 
-# Install Go and apply a temporary fix to the installed standard library
-# packages being stale
+# Install Go and VCS tools
 RUN pacman -S --noconfirm go
-RUN go install std
-
-# Install git and other VCS tools
 RUN pacman -S --noconfirm git mercurial bzr svn
 
 # Set the GOPATH
